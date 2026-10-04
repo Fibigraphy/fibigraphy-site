@@ -31,13 +31,15 @@ const visitedCities=[
 const mapElement=document.querySelector("#world-map");
 if(mapElement&&window.L){
   const map=L.map(mapElement,{
-    zoomControl:true,
+    zoomControl:false,
     minZoom:2,
     maxZoom:7,
     scrollWheelZoom:true,
     worldCopyJump:false,
     attributionControl:false
   }).setView([31,38],2);
+
+  L.control.zoom({position:"bottomleft"}).addTo(map);
 
   fetch("data/ne_110m_land.geojson")
     .then(response=>{
