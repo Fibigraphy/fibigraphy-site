@@ -2,7 +2,7 @@
 .map-section{padding:clamp(80px,9vw,130px) var(--pad);border-top:1px solid var(--line)}
 .map-head{margin-bottom:34px}
 .map-head .eyebrow{margin-bottom:14px}
-.map-title-row{display:flex;align-items:baseline;gap:clamp(26px,5vw,76px)}
+.map-title-row{display:flex;align-items:baseline;justify-content:space-between;gap:clamp(26px,5vw,76px);width:100%}
 .map-head h2{font-size:clamp(42px,5vw,76px);line-height:1}
 .map-count{margin:0;color:var(--muted);font-size:10px;letter-spacing:.15em;text-transform:uppercase}
 .map-frame{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
@@ -11,7 +11,7 @@
 .leaflet-container:active{cursor:grabbing}
 .map-instruction{position:absolute;z-index:500;top:18px;left:18px;margin:0;padding:5px 8px;background:rgba(247,246,243,.88);font-size:8px;letter-spacing:.16em;color:#5f5b55;pointer-events:none}
 .map-credit{position:absolute;z-index:500;right:12px;bottom:8px;margin:0;font-size:7px;letter-spacing:.12em;color:#8b8780;pointer-events:none}
-.leaflet-control-zoom{border:0!important;box-shadow:none!important;margin-right:12px!important;margin-bottom:34px!important}
+.leaflet-control-zoom{border:0!important;box-shadow:none!important;margin-left:12px!important;margin-bottom:34px!important}
 .leaflet-control-zoom a{width:34px!important;height:34px!important;line-height:32px!important;border:1px solid #c9c6bf!important;background:rgba(247,246,243,.94)!important;color:#111!important;font-size:16px!important}
 .leaflet-control-zoom a:first-child{border-radius:0!important}
 .leaflet-control-zoom a:last-child{border-radius:0!important}
