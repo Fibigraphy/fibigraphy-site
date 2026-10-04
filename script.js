@@ -1,4 +1,60 @@
-const gallery=document.querySelector('#travel-gallery'),total=75;for(let i=1;i<=total;i++){const n=String(i).padStart(2,'0'),f=document.createElement('figure'),img=document.createElement('img');f.className='photo';img.src=`images/travel-vol-01/photo-${n}.webp`;img.alt=`Travel Vol.01 — photograph ${n}`;img.loading=i<7?'eager':'lazy';img.decoding='async';img.dataset.index=i-1;f.appendChild(img);gallery.appendChild(f)}const box=document.querySelector('.lightbox'),boxImg=box.querySelector('img'),count=box.querySelector('.lightbox-count');let current=0;function show(i){current=(i+total)%total;const n=String(current+1).padStart(2,'0');boxImg.src=`images/travel-vol-01/photo-${n}.webp`;boxImg.alt=`Travel Vol.01 — photograph ${n}`;count.textContent=`${n} / ${total}`}gallery.addEventListener('click',e=>{if(e.target.tagName!=='IMG')return;show(Number(e.target.dataset.index));box.classList.add('is-open');box.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'});function close(){box.classList.remove('is-open');box.setAttribute('aria-hidden','true');document.body.style.overflow='';boxImg.src=''}box.querySelector('.lightbox-close').onclick=close;box.querySelector('.lightbox-prev').onclick=()=>show(current-1);box.querySelector('.lightbox-next').onclick=()=>show(current+1);box.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(!box.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1)})
+const gallery=document.querySelector("#travel-gallery");
+if(gallery){
+  const total=Number(gallery.dataset.total||75);
+  for(let i=1;i<=total;i++){
+    const n=String(i).padStart(2,"0");
+    const f=document.createElement("figure");
+    const img=document.createElement("img");
+    f.className="photo";
+    img.src=`images/travel-vol-01/photo-${n}.webp`;
+    img.alt=`Travel Vol.01 — photograph ${n}`;
+    img.loading=i<7?"eager":"lazy";
+    img.decoding="async";
+    img.dataset.index=i-1;
+    f.appendChild(img);
+    gallery.appendChild(f);
+  }
+
+  const box=document.querySelector(".lightbox");
+  const boxImg=box.querySelector("img");
+  const count=box.querySelector(".lightbox-count");
+  let current=0;
+
+  function show(i){
+    current=(i+total)%total;
+    const n=String(current+1).padStart(2,"0");
+    boxImg.src=`images/travel-vol-01/photo-${n}.webp`;
+    boxImg.alt=`Travel Vol.01 — photograph ${n}`;
+    count.textContent=`${n} / ${total}`;
+  }
+
+  gallery.addEventListener("click",e=>{
+    if(e.target.tagName!=="IMG")return;
+    show(Number(e.target.dataset.index));
+    box.classList.add("is-open");
+    box.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+  });
+
+  function close(){
+    box.classList.remove("is-open");
+    box.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+    boxImg.src="";
+  }
+
+  box.querySelector(".lightbox-close").onclick=close;
+  box.querySelector(".lightbox-prev").onclick=()=>show(current-1);
+  box.querySelector(".lightbox-next").onclick=()=>show(current+1);
+  box.addEventListener("click",e=>{if(e.target===box)close()});
+  document.addEventListener("keydown",e=>{
+    if(!box.classList.contains("is-open"))return;
+    if(e.key==="Escape")close();
+    if(e.key==="ArrowLeft")show(current-1);
+    if(e.key==="ArrowRight")show(current+1);
+  });
+}
+
 const visitedCities=[
   {name:"Taipei",lat:25.0330,lng:121.5654},
   {name:"Shanghai",lat:31.2304,lng:121.4737},
