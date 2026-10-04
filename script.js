@@ -30,25 +30,59 @@ const visitedCities=[
 
 const mapElement=document.querySelector("#world-map");
 if(mapElement&&window.L){
-  const map=L.map(mapElement,{zoomControl:true,minZoom:2,maxZoom:12,worldCopyJump:true,scrollWheelZoom:true}).setView([32,35],2);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
-    maxZoom:19,
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+  const map=L.map(mapElement,{
+    zoomControl:true,
+    minZoom:2,
+    maxZoom:7,
+    scrollWheelZoom:true,
+    worldCopyJump:false,
+    attributionControl:false
+  }).setView([31,38],2);
 
-  const flagIcon=L.divIcon({
-    className:"city-flag",
-    html:'<div class="flag-marker" aria-hidden="true"></div>',
-    iconSize:[24,30],
-    iconAnchor:[6,28],
-    popupAnchor:[7,-27]
+  fetch("data/ne_110m_land.geojson")
+    .then(response=>{
+      if(!response.ok)throw new Error("Map data could not be loaded.");
+      return response.json();
+    })
+    .then(land=>{
+      L.geoJSON(land,{
+        interactive:false,
+        style:{
+          color:"#c9c7c1",
+          weight:0.7,
+          opacity:0.8,
+          fillColor:"#f2f1ed",
+          fillOpacity:0.38
+        }
+      }).addTo(map);
+    })
+    .catch(()=>{});
+
+  visitedCities.forEach((city,index)=>{
+    const number=String(index+1).padStart(2,"0");
+    const pointIcon=L.divIcon({
+      className:"city-point",
+      html:`<div class="city-marker"><span class="city-index">${number}</span><span class="city-dot" aria-hidden="true"></span></div>`,
+      iconSize:[28,24],
+      iconAnchor:[13,14],
+      popupAnchor:[1,-9]
+    });
+
+    const marker=L.marker([city.lat,city.lng],{
+      icon:pointIcon,
+      title:city.name,
+      alt:city.name,
+      keyboard:true
+    }).addTo(map);
+
+    marker.bindTooltip(city.name,{
+      direction:"top",
+      offset:[1,-8],
+      opacity:1,
+      className:"city-tooltip"
+    });
+    marker.bindPopup(city.name,{closeButton:false,offset:[0,-2]});
   });
 
-  visitedCities.forEach(city=>{
-    L.marker([city.lat,city.lng],{icon:flagIcon,title:city.name,alt:city.name})
-      .addTo(map)
-      .bindPopup(city.name,{closeButton:false,offset:[0,-2]});
-  });
-
-  map.setMaxBounds([[-85,-180],[85,180]]);
+  map.setMaxBounds([[-70,-180],[82,180]]);
 }
