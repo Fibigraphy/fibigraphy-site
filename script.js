@@ -5,6 +5,8 @@ const visitedCities=[
   {name:"Chengdu",lat:30.5728,lng:104.0668},
   {name:"Chaozhou",lat:23.6567,lng:116.6226},
   {name:"Hong Kong",lat:22.3193,lng:114.1694},
+  {name:"Xiamen",lat:24.4798,lng:118.0894},
+  {name:"Guangzhou",lat:23.1291,lng:113.2644},
   {name:"Toyama",lat:36.6953,lng:137.2113},
   {name:"Kyoto",lat:35.0116,lng:135.7681},
   {name:"Shirahama",lat:33.6780,lng:135.3480},
@@ -21,7 +23,9 @@ const visitedCities=[
   {name:"Lewes",lat:50.8739,lng:0.0088},
   {name:"Brighton",lat:50.8225,lng:-0.1372},
   {name:"Amsterdam",lat:52.3676,lng:4.9041},
-  {name:"Copenhagen",lat:55.6761,lng:12.5683}
+  {name:"Copenhagen",lat:55.6761,lng:12.5683},
+  {name:"Aarhus",lat:56.1629,lng:10.2039},
+  {name:"Porto",lat:41.1579,lng:-8.6291}
 ];
 
 const mapElement=document.querySelector("#world-map");
