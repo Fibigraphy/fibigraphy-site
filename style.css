@@ -46,3 +46,34 @@
 .food-image{margin:0;width:100%;max-width:640px;aspect-ratio:4/5;overflow:hidden;justify-self:end}
 .food-image img{width:100%;height:100%;object-fit:cover;object-position:center 50%}
 @media(max-width:800px){.food-section{grid-template-columns:1fr;gap:30px}.food-image{max-width:none;justify-self:stretch}.food-copy h2{font-size:clamp(46px,10vw,76px)}}
+
+/* Food Journal: recipe editorial spread */
+.food-entry-link{display:inline-block}
+.food-entry-link::after{content:" ↗";font-family:Arial,Helvetica,sans-serif;font-size:.22em;vertical-align:top;opacity:0;transition:opacity .2s ease}
+.food-entry-link:hover::after,.food-entry-link:focus-visible::after{opacity:1}
+.food-image a{display:block;width:100%;height:100%}
+.food-journal-heading{display:grid;grid-template-columns:.4fr 1fr;column-gap:clamp(32px,5vw,70px);align-items:end;padding:clamp(90px,10vw,150px) var(--pad) clamp(50px,6vw,95px)}
+.food-journal-heading .eyebrow{grid-column:1/-1}
+.food-journal-heading h1{margin:0;font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-size:clamp(44px,6vw,88px);font-weight:400;line-height:1.18;letter-spacing:-.05em}
+.food-journal-subtitle{margin:0 0 8px;color:var(--muted);font-family:"Times New Roman",Times,serif;font-size:clamp(15px,1.7vw,22px);font-style:italic}
+.recipe-spread{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,90px);align-items:start;margin:0 var(--pad);padding:clamp(35px,5vw,70px) 0 clamp(60px,8vw,130px);border-top:1px solid var(--line)}
+.recipe-photo{margin:0;position:sticky;top:110px}
+.recipe-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;background:#eae6de}
+.recipe-photo figcaption{margin-top:12px;color:var(--muted);font-size:9px;letter-spacing:.14em}
+.recipe-content{max-width:640px;padding:clamp(8px,2vw,32px) 0 0}
+.recipe-content h2{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-weight:400;font-size:clamp(36px,3.7vw,58px);line-height:1.26;letter-spacing:-.045em}
+.recipe-kicker{display:block;font-size:.47em;line-height:1.8;letter-spacing:.08em}
+.recipe-story{margin:clamp(32px,4vw,60px) 0 clamp(40px,5vw,75px);font-size:14px;line-height:1.95;letter-spacing:.02em}
+.recipe-story p{margin:0 0 20px}
+.recipe-details{display:grid;grid-template-columns:minmax(120px,.75fr) minmax(0,1.25fr);gap:clamp(24px,3vw,52px)}
+.recipe-details h3{margin:0 0 26px;font-size:12px;font-weight:500;letter-spacing:.12em}
+.recipe-ingredients dl{margin:0}
+.recipe-ingredients dl div{display:flex;justify-content:space-between;gap:14px;margin-bottom:13px;font-size:13px}
+.recipe-ingredients dt,.recipe-ingredients dd{margin:0}
+.recipe-ingredients dd{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums}
+.recipe-method ol{margin:0;padding:0;list-style:none;counter-reset:recipe}
+.recipe-method li{position:relative;counter-increment:recipe;padding-left:27px;margin-bottom:22px;font-size:13px;line-height:1.9}
+.recipe-method li::before{content:counter(recipe,decimal-leading-zero);position:absolute;top:0;left:0;font-size:10px;color:var(--muted)}
+.recipe-bottom{display:flex;justify-content:flex-end;padding:0 var(--pad) clamp(75px,9vw,120px)}
+@media(max-width:800px){.food-journal-heading{grid-template-columns:1fr;gap:16px}.food-journal-heading .eyebrow{grid-column:1}.recipe-spread{grid-template-columns:1fr;gap:36px}.recipe-photo{position:static;max-width:650px}.recipe-content{max-width:none}.recipe-details{grid-template-columns:1fr 1.5fr}}
+@media(max-width:520px){.food-journal-heading{padding-top:65px}.food-journal-heading h1{font-size:44px}.recipe-details{grid-template-columns:1fr;gap:30px}.recipe-story{font-size:14px}.recipe-photo figcaption{font-size:8px}}
