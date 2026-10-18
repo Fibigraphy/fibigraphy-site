@@ -42,10 +42,10 @@
 
 /* Food journal: first-level homepage section */
 .food-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(40px,7vw,120px);padding:clamp(90px,11vw,170px) var(--pad);border-top:1px solid var(--line)}
-.food-copy h2{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-weight:400;font-size:clamp(50px,6.5vw,94px);line-height:1.14;letter-spacing:-.04em}
+.food-copy h2{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.2;letter-spacing:-.04em}
 .food-image{margin:0;width:100%;max-width:640px;aspect-ratio:4/5;overflow:hidden;justify-self:end}
 .food-image img{width:100%;height:100%;object-fit:cover;object-position:center 50%}
-@media(max-width:800px){.food-section{grid-template-columns:1fr;gap:30px}.food-image{max-width:none;justify-self:stretch}.food-copy h2{font-size:clamp(46px,10vw,76px)}}
+@media(max-width:800px){.food-section{grid-template-columns:1fr;gap:30px}.food-image{max-width:none;justify-self:stretch}.food-copy h2{font-size:clamp(30px,7vw,46px)}}
 
 /* Food Journal: recipe editorial spread */
 .food-entry-link{display:inline-block}
@@ -57,8 +57,8 @@
 .recipe-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;background:#eae6de}
 .recipe-photo figcaption{margin-top:12px;color:var(--muted);font-size:9px;letter-spacing:.14em}
 .recipe-content{max-width:640px;padding:clamp(8px,2vw,32px) 0 0}
-.recipe-content h2{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-weight:400;font-size:clamp(36px,3.7vw,58px);line-height:1.26;letter-spacing:-.045em}
-.recipe-kicker{display:block;font-size:.47em;line-height:1.8;letter-spacing:.08em}
+.recipe-content h2{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-weight:400;font-size:clamp(26px,2.8vw,38px);line-height:1.35;letter-spacing:-.045em}
+.recipe-kicker{display:block;font-size:14px;line-height:1.95;letter-spacing:.02em;margin-bottom:8px}
 .recipe-story{margin:clamp(32px,4vw,60px) 0 clamp(40px,5vw,75px);font-size:14px;line-height:1.95;letter-spacing:.02em}
 .recipe-story p{margin:0 0 20px}
 .recipe-details{display:grid;grid-template-columns:minmax(120px,.75fr) minmax(0,1.25fr);gap:clamp(24px,3vw,52px)}
@@ -77,11 +77,11 @@
 /* Food Journal: second-level recipe index */
 .recipe-index{min-height:calc(100vh - 160px);padding:clamp(80px,10vw,150px) var(--pad) clamp(90px,11vw,160px)}
 .recipe-index-heading{padding-bottom:clamp(50px,7vw,105px)}
-.recipe-index-heading h1{margin:0;font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-size:clamp(48px,6vw,88px);font-weight:400;line-height:1.2;letter-spacing:-.045em}
+.recipe-index-heading h1{margin:0;font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-size:clamp(32px,4.2vw,56px);font-weight:400;line-height:1.2;letter-spacing:-.045em}
 .recipe-index-list{border-top:1px solid var(--line)}
 .recipe-index-item{display:grid;grid-template-columns:90px minmax(0,1fr) 35px;align-items:baseline;gap:clamp(20px,4vw,60px);padding:clamp(27px,4vw,50px) 0;border-bottom:1px solid var(--line);transition:opacity .2s ease}
 .recipe-index-item:hover{opacity:.55}
 .recipe-index-number{color:var(--muted);font-size:11px;letter-spacing:.16em;font-variant-numeric:tabular-nums}
-.recipe-index-name{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-size:clamp(28px,3.6vw,54px);font-weight:400;line-height:1.3;letter-spacing:-.035em}
+.recipe-index-name{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-size:clamp(22px,2.5vw,34px);font-weight:400;line-height:1.3;letter-spacing:-.035em}
 .recipe-index-arrow{justify-self:end;font-size:18px;font-family:Arial,Helvetica,sans-serif}
-@media(max-width:520px){.recipe-index{padding-top:70px}.recipe-index-item{grid-template-columns:48px minmax(0,1fr) 24px;gap:14px}.recipe-index-name{font-size:30px}}
+@media(max-width:520px){.recipe-index{padding-top:70px}.recipe-index-item{grid-template-columns:48px minmax(0,1fr) 24px;gap:14px}.recipe-index-name{font-size:24px}}
