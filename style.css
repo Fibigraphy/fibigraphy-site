@@ -39,3 +39,10 @@
 .travel-destinations{margin:24px 0 0;font-size:10px;letter-spacing:.15em}
 .travel-gallery-section{border-top:1px solid var(--line)}
 @media(max-width:800px){.travel-intro{grid-template-columns:1fr}.travel-intro-title h1{font-size:clamp(48px,12vw,76px)}}
+
+/* Food journal: first-level homepage section */
+.food-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(40px,7vw,120px);padding:clamp(90px,11vw,170px) var(--pad);border-top:1px solid var(--line)}
+.food-copy h2{font-family:"Songti TC","Noto Serif CJK TC","PMingLiU",serif;font-size:clamp(50px,6.5vw,94px);line-height:1.14;letter-spacing:-.04em}
+.food-image{margin:0;width:100%;max-width:640px;aspect-ratio:4/5;overflow:hidden;justify-self:end}
+.food-image img{width:100%;height:100%;object-fit:cover;object-position:center 50%}
+@media(max-width:800px){.food-section{grid-template-columns:1fr;gap:30px}.food-image{max-width:none;justify-self:stretch}.food-copy h2{font-size:clamp(46px,10vw,76px)}}
